@@ -387,8 +387,11 @@
     <div class="razao-card"><div class="razao-numero">VI</div><p class="razao-texto">Porque mesmo diante de tudo, você segue de cabeça erguida.</p></div>
     <div class="razao-card"><div class="razao-numero">VII</div><p class="razao-texto">Porque o seu sorriso me faz sorrir.</p></div>
     <div class="razao-card"><div class="razao-numero">VIII</div><p class="razao-texto">Porque mesmo sem eu pedir, você faz as coisas para me fazer feliz.</p></div>
-    <div class="razao-card" style="grid-column: 1 / -1; max-width: 380px; margin: 0 auto; border-top-color: var(--rose);"><div class="razao-numero" style="color:var(--rose);">♡</div><p class="razao-texto" style="font-size:1.15rem;color:var(--ink);">Porque eu vou casar com você.</p></div>
+    <div class="razao-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; border: none; background: transparent; box-shadow: none; padding-top: 0.5rem;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--sepia); text-align: center; letter-spacing: 0.05rem;">Poderia listar um milhão de caixinhas — mas vou guardar o resto para o dia que a gente se casar.</p>
+    </div>
   </div>
+  <p style="text-align:center; font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1.4rem,3vw,2rem); color:var(--rose); margin-top:2.5rem; line-height:1.7;">Porque eu vou casar com você.</p>
 </section>
 
 <!-- SEP -->
@@ -582,6 +585,21 @@ function verificarSenha() {
   }
 }
 document.getElementById('input-senha').addEventListener('keydown', e => { if (e.key === 'Enter') verificarSenha(); });
+
+// Máscara automática dd/mm/aaaa
+document.getElementById('input-senha').addEventListener('input', function(e) {
+  let v = this.value.replace(/\D/g, ''); // só números
+  let out = '';
+  if (v.length > 0) out = v.substring(0, 2);
+  if (v.length >= 3) out += '/' + v.substring(2, 4);
+  if (v.length >= 5) out += '/' + v.substring(4, 8);
+  this.value = out;
+});
+
+// Impede digitar barra manualmente (já é inserida automaticamente)
+document.getElementById('input-senha').addEventListener('keydown', function(e) {
+  if (e.key === '/') e.preventDefault();
+});
 
 // ENVELOPE
 let envelopeAberto = false;
