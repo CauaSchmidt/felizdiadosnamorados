@@ -636,7 +636,7 @@ window.addEventListener('load', function() {
   const icone = L.divIcon({ html: '<div style="font-size:1.4rem;line-height:1;color:#c1714f;">♡</div>', className: '', iconSize: [28,28], iconAnchor: [14,14] });
   [
     { nome: 'Mongaguá', lat: -24.0906, lng: -46.6236, desc: 'Nosso lugar especial ♡' },
-    { nome: 'São Paulo', lat: -23.5505, lng: -46.6333, desc: 'Nossa cidade ♡' },
+    { nome: 'Campinas', lat: -22.9099, lng: -47.0626, desc: 'Nossa cidade futura ♡' },
     { nome: 'Ilha do Mel', lat: -25.5090, lng: -48.3130, desc: 'Aventura juntos ♡' },
   ].forEach(l => L.marker([l.lat, l.lng], {icon: icone}).addTo(map).bindPopup(`<b style="font-family:serif;color:#c1714f;">${l.nome}</b><br><i style="font-size:0.85rem;">${l.desc}</i>`));
 });
