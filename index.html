@@ -656,20 +656,18 @@ function lancarParticulas() {
 }
 
 function entrarNoSite() {
+  // Toca IMEDIATAMENTE no clique — antes de qualquer animação
+  var audio = document.getElementById('musica-fundo');
+  audio.volume = 0.7;
+  audio.play();
+  document.getElementById('btn-mute').style.display = 'flex';
+
   localStorage.setItem('nina_quiz', '1');
   var db = document.getElementById('desbloqueio');
   escurecer(function() {
     db.style.display = 'none';
     document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
-    // Toca a música
-    var audio = document.getElementById('musica-fundo');
-    audio.volume = 0.7;
-    audio.play().then(function() {
-      document.getElementById('btn-mute').style.display = 'flex';
-    }).catch(function() {
-      document.getElementById('btn-mute').style.display = 'flex';
-    });
   });
 }
 
@@ -990,20 +988,18 @@ function lancarParticulas() {
 }
 
 function entrarNoSite() {
+  // Toca IMEDIATAMENTE no clique — antes de qualquer animação
+  var audio = document.getElementById('musica-fundo');
+  audio.volume = 0.7;
+  audio.play();
+  document.getElementById('btn-mute').style.display = 'flex';
+
   localStorage.setItem('nina_quiz', '1');
   var db = document.getElementById('desbloqueio');
   escurecer(function() {
     db.style.display = 'none';
     document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
-    // Toca a música
-    var audio = document.getElementById('musica-fundo');
-    audio.volume = 0.7;
-    audio.play().then(function() {
-      document.getElementById('btn-mute').style.display = 'flex';
-    }).catch(function() {
-      document.getElementById('btn-mute').style.display = 'flex';
-    });
   });
 }
 
