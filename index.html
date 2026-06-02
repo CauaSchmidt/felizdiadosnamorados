@@ -377,7 +377,7 @@ footer{text-align:center;padding:6rem 2rem 7rem;position:relative;z-index:1;back
 
 <div id="lightbox" onclick="fecharFoto()"><img id="lightbox-img" src="" alt=""></div>
 
-<section id="capa">
+<div id="site-conteudo" style="visibility:hidden;"><section id="capa">
   <div class="capa-bg" id="capa-bg-el"></div>
   <div class="capa-content">
     <p class="ornamento-topo">✦ &nbsp; uma história de amor &nbsp; ✦</p>
@@ -645,6 +645,7 @@ function entrarNoSite() {
   var db = document.getElementById('desbloqueio');
   escurecer(function() {
     db.style.display = 'none';
+    document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
   });
 }
@@ -668,6 +669,7 @@ function aplicarEstado() {
   if (quizOk) {
     // Já desbloqueou tudo - entra direto
     document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
     return;
   }
@@ -948,10 +950,11 @@ function entrarNoSite() {
   var db = document.getElementById('desbloqueio');
   escurecer(function() {
     db.style.display = 'none';
+    document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
   });
 }
 
 </script>
-</body>
+</div></body>
 </html>
