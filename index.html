@@ -298,12 +298,27 @@ footer{text-align:center;padding:6rem 2rem 7rem;position:relative;z-index:1;back
   .ql-pergunta { padding: 1.5rem 1.2rem; }
   .ql-pergunta h3 { font-size: 1.1rem; }
 }
+
+#btn-mute {
+  position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 997;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(13,10,7,0.85); border: 1px solid rgba(212,168,83,0.3);
+  color: var(--gold-light); font-size: 1.1rem; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px); transition: all 0.3s;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+#btn-mute:hover { border-color: var(--rose-light); color: var(--rose-light); transform: scale(1.1); }
 </style>
 </head>
 <body>
 
 <div id="progress-bar"></div>
 <div id="cortina"></div>
+<button id="btn-mute" onclick="toggleMusica()" title="Pausar música">♪</button>
+
+<audio id="musica-fundo" loop preload="auto"><source src="bb.mp3" type="audio/mpeg"></audio>
+
 <!-- QUIZ BLOQUEIO -->
 <div id="quiz-lock">
   <p class="ql-titulo">Amor, você vai ter que acertar tudo<br>para desbloquear o site.</p>
@@ -647,7 +662,29 @@ function entrarNoSite() {
     db.style.display = 'none';
     document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
+    // Toca a música
+    var audio = document.getElementById('musica-fundo');
+    audio.volume = 0.7;
+    audio.play().then(function() {
+      document.getElementById('btn-mute').style.display = 'flex';
+    }).catch(function() {
+      document.getElementById('btn-mute').style.display = 'flex';
+    });
   });
+}
+
+function toggleMusica() {
+  var audio = document.getElementById('musica-fundo');
+  var btn = document.getElementById('btn-mute');
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = '♪';
+    btn.style.borderColor = 'rgba(212,168,83,0.3)';
+  } else {
+    audio.pause();
+    btn.textContent = '♩';
+    btn.style.borderColor = 'rgba(193,113,79,0.4)';
+  }
 }
 
 </script>
@@ -671,6 +708,13 @@ function aplicarEstado() {
     document.getElementById('tela-senha').style.display = 'none';
     document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
+    var audio = document.getElementById('musica-fundo');
+    audio.volume = 0.7;
+    audio.play().then(function() {
+      document.getElementById('btn-mute').style.display = 'flex';
+    }).catch(function(){
+      document.getElementById('btn-mute').style.display = 'flex';
+    });
     return;
   }
   if (senhaOk) {
@@ -952,7 +996,29 @@ function entrarNoSite() {
     db.style.display = 'none';
     document.getElementById('site-conteudo').style.visibility = 'visible';
     document.getElementById('progress-bar').style.display = 'block';
+    // Toca a música
+    var audio = document.getElementById('musica-fundo');
+    audio.volume = 0.7;
+    audio.play().then(function() {
+      document.getElementById('btn-mute').style.display = 'flex';
+    }).catch(function() {
+      document.getElementById('btn-mute').style.display = 'flex';
+    });
   });
+}
+
+function toggleMusica() {
+  var audio = document.getElementById('musica-fundo');
+  var btn = document.getElementById('btn-mute');
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = '♪';
+    btn.style.borderColor = 'rgba(212,168,83,0.3)';
+  } else {
+    audio.pause();
+    btn.textContent = '♩';
+    btn.style.borderColor = 'rgba(193,113,79,0.4)';
+  }
 }
 
 </script>
